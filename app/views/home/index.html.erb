@@ -8,16 +8,20 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Hut of Code.</h1>
-                        <h3>Join a community of people that loves building things with code.</h3>
+                        <h3>Join a community of people that love building things with code.</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
+                          <% if user_signed_in? %>
+                            <button class= "btn btn-default btn-lg" type="button" name="button">Welcome <%= current_user.email %></button>
+                          <% else %>
                             <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Register</span></a>
+                              <%= link_to "Register", new_user_registration_path, class: "btn btn-default btn-lg" %>
                             </li>
+                            <li>
+                              <%= link_to "Login", new_user_session_path, class: "btn btn-default btn-lg" %>
+                            </li>
+                          <% end %>
 
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Login</span></a>
-                            </li>
                         </ul>
                     </div>
                 </div>
